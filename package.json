@@ -1,0 +1,42 @@
+{
+  "files": [
+    "lib/**/*"
+  ],
+  "license": "ISC",
+  "version": "1.0.0",
+  "author": "JiCheng",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "name": "dapp-wallet-provider",
+  "description": "A dapp wallet provider",
+  "homepage": "https://github.com/Anunnakill/Wallet#readme",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dapp",
+    "wallet",
+    "provider",
+    "blockchain",
+    "ethereum",
+    "metamask"
+  ],
+  "bugs": {
+    "url": "https://github.com/Anunnakill/Wallet/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Anunnakill/Wallet.git"
+  },
+  "dependencies": {
+    "@portis/web3": "^4.0.6",
+    "@walletconnect/web3-provider": "^1.6.6",
+    "walletlink": "^2.1.11",
+    "web3": "^1.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}
