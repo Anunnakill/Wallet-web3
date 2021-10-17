@@ -34,7 +34,7 @@ class Walletlink {
       this.web3 = new Web3(this.wallet);
 
       // 默认账号
-      const [account] = await this.web3.listAccounts();
+      const [account] = await this.web3.eth.getAccounts();
 
       this.account = account;
 
