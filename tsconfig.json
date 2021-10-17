@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "module": "esnext",
     "strict": true,
     "resolveJsonModule": true,
@@ -9,7 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["esnext"],
     "declaration": true,
-    "outDir": "./lib"
+    "outDir": "lib"
   },
   "include": ["src"],
   "exclude": ["node_modules"]
