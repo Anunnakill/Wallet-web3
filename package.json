@@ -2,12 +2,12 @@
   "files": [
     "lib/**/*"
   ],
+  "name": "wallet",
   "license": "ISC",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "JiCheng",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "name": "dapp-wallet-provider",
   "description": "A dapp wallet provider",
   "homepage": "https://github.com/Anunnakill/Wallet#readme",
   "scripts": {
