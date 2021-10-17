@@ -2,12 +2,12 @@
   "files": [
     "lib/**/*"
   ],
-  "name": "wallet",
   "license": "ISC",
   "version": "1.0.0",
   "author": "JiCheng",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "name": "@wallet/provider",
   "description": "A dapp wallet provider",
   "homepage": "https://github.com/Anunnakill/Wallet#readme",
   "scripts": {
@@ -16,11 +16,9 @@
   },
   "keywords": [
     "dapp",
-    "wallet",
     "provider",
     "blockchain",
-    "ethereum",
-    "metamask"
+    "@wallet/provider"
   ],
   "bugs": {
     "url": "https://github.com/Anunnakill/Wallet/issues"
