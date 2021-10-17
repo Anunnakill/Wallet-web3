@@ -26,7 +26,7 @@ class Portis {
       await this.wallet.provider.enable();
 
       // web3实例
-      this.web3 = new Web3(this.wallet);
+      this.web3 = new Web3(this.wallet.provider);
 
       // 默认账号
       const [account] = await this.web3.eth.getAccounts();
