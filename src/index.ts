@@ -15,12 +15,12 @@ class Wallet {
     walletconnect,
   };
 
-  constructor(init: string) {
+  constructor(init: string, network?: string) {
     // 初始化
     this.use = init;
 
     // 替换默认类的实例对象
-    return new this.wallets[this.use]();
+    return new this.wallets[this.use](network);
   }
 }
 
