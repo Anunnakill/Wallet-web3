@@ -129,10 +129,10 @@ wallet.onChainChanged(chainId => {
 
 ### ❗️❗️Official events support
 
-[Walletconnect:] onAccountsChanged(), onChainChanged()
-[Metamask:] onAccountsChanged(), onChainChanged()
-[Portis:] onAccountsChanged()
-[Walletlink:] No (The official has not provided any monitoring events.)
+1. Walletconnect: onAccountsChanged(), onChainChanged()
+2. Metamask: onAccountsChanged(), onChainChanged()
+3. Portis: onAccountsChanged()
+4. Walletlink: No (The official has not provided any monitoring events.)
 
 ## Supported Wallets & Integrations
 

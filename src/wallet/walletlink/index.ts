@@ -47,6 +47,12 @@ class Walletlink {
   public async logout() {
     await this.wallet.close();
   }
+
+  // 钱包监听账号变化
+  public onAccountsChanged(callBack: Function) {}
+
+  // 钱包监听网络变化
+  public onChainChanged(callBack: Function) {}
 }
 
 export default Walletlink;
