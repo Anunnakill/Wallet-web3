@@ -42,6 +42,14 @@ class Portis {
   public async logout() {
     await this.wallet.logout();
   }
+
+  // 钱包监听账号变化
+  public onAccountsChanged(callBack: Function) {
+    this.wallet.onActiveWalletChanged(callBack);
+  }
+
+  // 钱包监听网络变化
+  public onChainChanged(callBack: Function) {}
 }
 
 export default Portis;

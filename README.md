@@ -101,9 +101,38 @@ await wallet.logout();
 
 ### Events
 
-Is staying up late in development. . .
+```bash
+onAccountsChanged(callBack)
+```
 
-Or you can do it yourself and exercise your skills.😄
+The wallet monitors account changes.
+
+```javascript
+wallet.onAccountsChanged(account => {
+  // New account
+  console.log(account);
+});
+```
+
+```bash
+onChainChanged(callBack)
+```
+
+The wallet monitors network changes.
+
+```javascript
+wallet.onChainChanged(chainId => {
+  // New network
+  console.log(chainId);
+});
+```
+
+### ❗️❗️Official events support
+
+[Walletconnect:] onAccountsChanged(), onChainChanged()
+[Metamask:] onAccountsChanged(), onChainChanged()
+[Portis:] onAccountsChanged()
+[Walletlink:] No (The official has not provided any monitoring events.)
 
 ## Supported Wallets & Integrations
 

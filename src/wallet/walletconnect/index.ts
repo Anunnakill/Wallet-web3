@@ -37,6 +37,18 @@ class Walletconnect {
   public async logout() {
     await this.wallet.disconnect();
   }
+
+  // 钱包监听账号变化
+  public onAccountsChanged(callBack: Function) {
+    this.wallet.on("accountsChanged", ([account]: string[]) =>
+      callBack(account),
+    );
+  }
+
+  // 钱包监听网络变化
+  public onChainChanged(callBack: Function) {
+    this.wallet.on("chainChanged", callBack);
+  }
 }
 
 export default Walletconnect;
