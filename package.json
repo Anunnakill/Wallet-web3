@@ -3,7 +3,7 @@
     "lib/**/*"
   ],
   "license": "ISC",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "JiCheng",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -15,10 +15,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "web3",
     "dapp",
     "wallet",
+    "portis",
     "provider",
-    "blockchain"
+    "metamask",
+    "blockchain",
+    "walletlink",
+    "walletconnect"
   ],
   "bugs": {
     "url": "https://github.com/Anunnakill/Wallet/issues"
