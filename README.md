@@ -8,7 +8,7 @@ Now integrated Metamask, Walletconnect, Walletlink, Portis.
 
 Other wallets are being supported one after another (Walletconnect protocol has been adopted by dozens of popular wallets).
 
-The src directory is the source code implementation of the plug-in, and the lib directory is the compiled file (ES5 is compiled by default because some advanced features of ES6 are not yet supported by the browser).
+The src directory is the source code implementation of the plug-in, and the lib directory is the compiled file (ES2021).
 
 The UI self-service interface has not been provided, and it needs to be implemented by itself (because it is only built with JS, I want to apply it in any JS environment, not in the specified framework).
 
@@ -73,7 +73,7 @@ try {
   // Catch all exception errors here.
   // If the authorization login fails.
   // web3: {}
-  // account: {}
+  // account: ""
 }
 ```
 
