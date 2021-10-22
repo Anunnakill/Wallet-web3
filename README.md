@@ -49,7 +49,17 @@ import Wallet from "blockchain-wallet-provider";
 // The second parameter: Network to use.
 // If it is an Ethereum wallet, you can choose mainnet or ropsten.
 // If it is a wallet of another chain, do not need to fill in.
-// return { web3, wallet, account, login, logout }
+
+// return {
+//   web3,
+//   wallet,
+//   account,
+//   login,
+//   logout,
+//   onAccountsChanged,
+//   onChainChanged,
+// };
+
 const wallet = new Wallet("metamask", "mainnet");
 
 // Use try catch
@@ -127,15 +137,15 @@ wallet.onChainChanged(chainId => {
 });
 ```
 
-### ❗️❗️Official events support
+### ❗️❗️Official methods and events support
 
-1⃣️Walletconnect👉 onAccountsChanged✅ onChainChanged✅
+1⃣️Walletconnect👉 login✅ logout✅ onAccountsChanged✅ onChainChanged✅
 
-2⃣️Metamask👉 onAccountsChanged✅ onChainChanged✅
+2⃣️Metamask👉 login✅ logout❌ onAccountsChanged✅ onChainChanged✅
 
-3⃣️Portis👉 onAccountsChanged✅ onChainChanged❌
+3⃣️Portis👉 login✅ logout✅ onAccountsChanged✅ onChainChanged❌
 
-4⃣️Walletlink👉 onAccountsChanged❌ onChainChanged❌
+4⃣️Walletlink👉 login✅ logout✅ onAccountsChanged❌ onChainChanged❌
 
 ## Supported Wallets & Integrations
 
