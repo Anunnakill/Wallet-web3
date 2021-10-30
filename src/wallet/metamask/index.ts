@@ -34,7 +34,7 @@ class Metamask {
 
       // 授权过程完毕
     } catch (error: any) {
-      throw new Error(error);
+      throw error;
     }
   }
 
