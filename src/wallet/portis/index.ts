@@ -6,18 +6,14 @@ class Portis {
   public wallet: any;
   public account: any;
 
-  constructor(network?: string) {
+  constructor({ dappId, network, config = {} }: any) {
     // 初始化
     this.web3 = {};
     this.wallet = {};
     this.account = "";
 
     // 初始化钱包
-    this.wallet = new PortisProvider(
-      "62b0690f-8942-4a25-902b-02a6c77ba9e0",
-      network || "mainnet",
-      {},
-    );
+    this.wallet = new PortisProvider(dappId, network, config);
   }
 
   public async login() {

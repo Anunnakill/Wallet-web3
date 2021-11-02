@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import rpc from "./rpc.json";
+import json from "./rpc.json";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
 class Walletconnect {
@@ -7,14 +7,19 @@ class Walletconnect {
   public wallet: any;
   public account: any;
 
-  constructor(network?: string) {
+  constructor({ rpc = {} }: any = {}) {
     // 初始化
     this.web3 = {};
     this.wallet = {};
     this.account = "";
 
     // 初始化钱包
-    this.wallet = new WalletConnectProvider({ rpc });
+    this.wallet = new WalletConnectProvider({
+      rpc: {
+        ...json,
+        ...rpc,
+      },
+    });
   }
 
   public async login() {

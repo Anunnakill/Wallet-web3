@@ -5,7 +5,7 @@ class Metamask {
   public wallet: any;
   public account: any;
 
-  constructor(network?: string) {
+  constructor() {
     // 初始化
     this.web3 = {};
     this.wallet = {};

@@ -4,7 +4,7 @@
 
 The wallet provider is a plug-in that integrates various blockchain wallet APIs to connect to Dapp (send transactions, personal signatures, deploy contracts).
 
-Now integrated Metamask, Walletconnect, Walletlink, Portis.
+Now integrated Metamask, Walletconnect, Walletlink, Fortmatic, Portis.
 
 Other wallets are being supported one after another (Walletconnect protocol has been adopted by dozens of popular wallets).
 
@@ -14,7 +14,7 @@ The UI self-service interface has not been provided, and it needs to be implemen
 
 Support TS, comes with type declaration file.✅
 
-If you feel unsatisfied with the writing, you can modify and build it yourself.😊
+For more configuration details of the following tutorial, please move to the relevant official website.😊
 
 ## Code Repository
 
@@ -44,23 +44,61 @@ import Wallet from "blockchain-wallet-provider";
 
 ```javascript
 // The first parameter: Wallet to use.
-// metamask or walletconnect or walletlink or portis (Note that the initial letter is lowercase).
+// metamask or walletconnect or walletlink or fortmatic or portis (Note that the initial letter is lowercase).
 
-// The second parameter: Network to use.
-// If it is an Ethereum wallet, you can choose mainnet or ropsten.
-// If it is a wallet of another chain, do not need to fill in.
+// The second parameter: Required configuration of the wallet.
 
-// return {
-//   web3,
-//   wallet,
-//   account,
-//   login,
-//   logout,
-//   onAccountsChanged,
-//   onChainChanged,
-// };
+// Metamask: No need.
+const wallet = new Wallet("metamask");
 
-const wallet = new Wallet("metamask", "mainnet");
+// Walletconnect: { rpc }.
+// Already built-in RPC ⬇️
+// {
+//   "250": "https://rpc.ftm.tools/",
+//   "56": "https://bsc-dataseed.binance.org/",
+//   "80001": "https://rpc-mumbai.matic.today",
+//   "137": "https://rpc-mainnet.matic.network",
+//   "1313161555": "https://testnet.aurora.dev",
+//   "1313161554": "https://mainnet.aurora.dev",
+//   "4002": "https://rpc.testnet.fantom.network/",
+//   "43114": "https://api.avax.network/ext/bc/C/rpc",
+//   "43113": "https://api.avax-test.network/ext/bc/C/rpc",
+//   "97": "https://data-seed-prebsc-1-s1.binance.org:8545/",
+//   "3": "https://ropsten.infura.io/v3/9e332d39364f4491aec5414fcbc4def7",
+//   "1": "https://mainnet.infura.io/v3/9e332d39364f4491aec5414fcbc4def7"
+// }
+const wallet = new Wallet("walletconnect", {
+  rpc: {
+    // You can add other RPC.
+  },
+});
+
+// Walletlink: { appName, appLogoUrl, darkMode, network }.
+const wallet = new Wallet("walletlink", {
+  appName: "Demo",
+  appLogoUrl: "https://demo.png",
+  darkMode: false,
+  network: "mainnet" || "ropsten", // Can only choose mainnet or ropsten.
+});
+
+// Fortmatic: { apiKey, network }.
+// Network format⬇️
+// 1: network: "kovan"
+// 2: network: { rpcUrl: "http://127.0.0.1:7545", chainId: 1011 }
+// 3: network: { rpcUrl: "https://bsc-dataseed.binance.org", chainId: 56 }
+const wallet = new Wallet("fortmatic", {
+  apiKey: "XXXXXX",
+  network: "ropsten" || { rpcUrl: "https://xxx.xx", chainId: 0 },
+});
+
+// Portis: { dappId, network, config }.
+const wallet = new Wallet("portis", {
+  dappId: "YourDappId",
+  network: "mainnet", // Can choose other chain.
+  config: {
+    // Please go to the official view other config.
+  },
+});
 
 // Use try catch
 try {
@@ -77,6 +115,18 @@ try {
 
   // Currently authorized account address.
   console.log(wallet.account);
+
+  // User login.
+  console.log(wallet.login());
+
+  // User logout.
+  console.log(wallet.logout());
+
+  // User change account.
+  console.log(wallet.onAccountsChanged());
+
+  // User change chain.
+  console.log(wallet.onChainChanged());
 
   //
 } catch (err) {
@@ -147,9 +197,12 @@ wallet.onChainChanged(chainId => {
 
 4⃣️Walletlink👉 login✅ logout✅ onAccountsChanged❌ onChainChanged❌
 
+5⃣️Fortmatic👉 login✅ logout✅ onAccountsChanged❌ onChainChanged❌
+
 ## Supported Wallets & Integrations
 
 1. [Portis](https://portis.io)
 2. [Metamask](https://metamask.io)
-3. [Walletlink](https://walletlink.org)
-4. [Walletconnect](https://walletconnect.com)
+3. [Fortmatic](https://fortmatic.com)
+4. [Walletlink](https://walletlink.org)
+5. [Walletconnect](https://walletconnect.com)
