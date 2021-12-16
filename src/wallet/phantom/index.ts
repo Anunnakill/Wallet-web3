@@ -1,38 +1,32 @@
-import * as waxjs from "@waxio/waxjs/dist";
+import * as Web3 from "@solana/web3.js";
 
-class Waxio {
+class Phantom {
   public web3: any;
   public wallet: any;
   public account: any;
 
-  constructor({
-    pubKeys,
-    rpcEndpoint,
-    userAccount,
-    tryAutoLogin = true,
-  }: any) {
+  constructor() {
     // 初始化
     this.web3 = {};
     this.wallet = {};
     this.account = "";
 
-    // 初始化钱包
-    this.wallet = new waxjs.WaxJS({
-      pubKeys,
-      rpcEndpoint,
-      userAccount,
-      tryAutoLogin,
-    });
+    // 插件钱包功能提供者
+    const Window: any = globalThis;
+    this.wallet = Window.phantom?.solana;
   }
 
   // 钱包执行账号登录
   public async login() {
     try {
       // 授权
-      const account = await this.wallet.login();
+      const res = await this.wallet.request({ method: "connect" });
 
       // 默认账号
-      this.account = account;
+      this.account = res.publicKey.toString();
+
+      // web3实例
+      this.web3 = Web3;
 
       // 授权过程完毕
     } catch (error: any) {
@@ -40,8 +34,10 @@ class Waxio {
     }
   }
 
-  // 钱包监听程序退出
-  public async logout() {}
+  // 钱包执行账号退出
+  public async logout() {
+    await this.wallet.request({ method: "disconnect" });
+  }
 
   // 钱包监听账号变化
   public onAccountsChanged(callBack: Function) {}
@@ -50,4 +46,4 @@ class Waxio {
   public onChainChanged(callBack: Function) {}
 }
 
-export default Waxio;
+export default Phantom;

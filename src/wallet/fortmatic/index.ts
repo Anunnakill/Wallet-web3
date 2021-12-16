@@ -16,6 +16,7 @@ class Fortmatic {
     this.wallet = new FortmaticProvider(apiKey, network);
   }
 
+  // 钱包执行账号登录
   public async login() {
     try {
       // 授权
@@ -35,6 +36,7 @@ class Fortmatic {
     }
   }
 
+  // 钱包执行账号退出
   public async logout() {
     await this.wallet.user.logout();
   }

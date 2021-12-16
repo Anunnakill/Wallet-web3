@@ -33,6 +33,7 @@ class Walletlink {
     );
   }
 
+  // 钱包执行账号登录
   public async login() {
     try {
       // 授权
@@ -52,6 +53,7 @@ class Walletlink {
     }
   }
 
+  // 钱包执行账号退出
   public async logout() {
     await this.wallet.close();
   }

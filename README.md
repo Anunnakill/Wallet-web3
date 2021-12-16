@@ -4,7 +4,7 @@
 
 The wallet provider is a plug-in that integrates various blockchain wallet APIs to connect to Dapp (send transactions, personal signatures, deploy contracts).
 
-Now integrated Metamask, Walletconnect, Walletlink(Coinbase Wallet), Fortmatic, Portis, Waxio(Wax Cloud Wallet).
+Now integrated Metamask, Walletconnect, Walletlink(Coinbase Wallet), Fortmatic, Portis, Waxio(Wax Cloud Wallet), Phantom.
 
 Other wallets are being supported one after another (Walletconnect protocol has been adopted by dozens of popular wallets).
 
@@ -44,12 +44,15 @@ import Wallet from "blockchain-wallet-provider";
 
 ```javascript
 // The first parameter: Wallet to use.
-// metamask or walletconnect or walletlink or fortmatic or portis or waxio (Note that the initial letter is lowercase).
+// metamask or walletconnect or walletlink or fortmatic or portis or waxio or phantom (Note that the initial letter is lowercase).
 
 // The second parameter: Required configuration of the wallet.
 
 // Metamask: No need.
 const wallet = new Wallet("metamask");
+
+// Phantom: No need.
+const wallet = new Wallet("phantom");
 
 // Walletconnect: { rpc }.
 // Already built-in RPC ⬇️
@@ -206,11 +209,14 @@ wallet.onChainChanged(chainId => {
 
 6⃣️Waxio👉 web3js❌ login✅ logout❌ onAccountsChanged❌ onChainChanged❌
 
+7⃣️Phantom web3js(@solana/web3.js)✅ login✅ logout✅ onAccountsChanged❌ onChainChanged❌
+
 ## Supported Wallets & Integrations
 
 1. [Waxio](https://wax.io)
 2. [Portis](https://portis.io)
-3. [Metamask](https://metamask.io)
-4. [Fortmatic](https://fortmatic.com)
-5. [Walletlink](https://walletlink.org)
-6. [Walletconnect](https://walletconnect.com)
+3. [Phantom](https://phantom.app)
+4. [Metamask](https://metamask.io)
+5. [Fortmatic](https://fortmatic.com)
+6. [Walletlink](https://walletlink.org)
+7. [Walletconnect](https://walletconnect.com)

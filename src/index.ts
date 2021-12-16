@@ -1,5 +1,6 @@
 import waxio from "./wallet/waxio";
 import portis from "./wallet/portis";
+import phantom from "./wallet/phantom";
 import metamask from "./wallet/metamask";
 import fortmatic from "./wallet/fortmatic";
 import walletlink from "./wallet/walletlink";
@@ -13,6 +14,7 @@ class Wallet {
   public wallets: any = {
     waxio,
     portis,
+    phantom,
     metamask,
     fortmatic,
     walletlink,

@@ -3,7 +3,7 @@
     "lib/**/*"
   ],
   "license": "ISC",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "JiCheng",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,12 +22,19 @@
     "waxjs",
     "wallet",
     "portis",
+    "web3.js",
     "provider",
     "metamask",
+    "phantom",
     "fortmatic",
     "blockchain",
     "walletlink",
-    "walletconnect"
+    "walletconnect",
+    "solana",
+    "solana-web3",
+    "solana-web3.js",
+    "solana/web3.js",
+    "@solana/web3.js"
   ],
   "bugs": {
     "url": "https://github.com/Anunnakill/Wallet/issues"
@@ -38,6 +45,7 @@
   },
   "dependencies": {
     "@portis/web3": "^4.0.6",
+    "@solana/web3.js": "^1.31.0",
     "@walletconnect/web3-provider": "^1.6.6",
     "@waxio/waxjs": "^1.0.4",
     "fortmatic": "^2.2.1",
