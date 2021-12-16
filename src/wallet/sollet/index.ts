@@ -26,7 +26,7 @@ class Sollet {
       await this.wallet.connect();
 
       // 默认账号
-      this.account = this.wallet.publicKey.toBase58();
+      this.account = this.wallet.publicKey?.toBase58();
 
       // web3实例
       this.web3 = Web3;
