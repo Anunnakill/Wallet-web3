@@ -4,7 +4,7 @@
 
 The wallet provider is a plug-in that integrates various blockchain wallet APIs to connect to Dapp (send transactions, personal signatures, deploy contracts).
 
-Now integrated Metamask, Walletconnect, Walletlink(Coinbase Wallet), Fortmatic, Portis, Waxio(Wax Cloud Wallet), Phantom.
+Now integrated Metamask, Walletconnect, Walletlink(Coinbase Wallet), Fortmatic, Portis, Waxio(Wax Cloud Wallet), Phantom, Sollet.
 
 Other wallets are being supported one after another (Walletconnect protocol has been adopted by dozens of popular wallets).
 
@@ -44,15 +44,15 @@ import Wallet from "blockchain-wallet-provider";
 
 ```javascript
 // The first parameter: Wallet to use.
-// metamask or walletconnect or walletlink or fortmatic or portis or waxio or phantom (Note that the initial letter is lowercase).
+// metamask or walletconnect or walletlink or fortmatic or portis or waxio or phantom, sollet (Note that the initial letter is lowercase).
 
 // The second parameter: Required configuration of the wallet.
 
 // Metamask: No need.
-const wallet = new Wallet("metamask");
+const wallet = new Wallet("metamask", {});
 
 // Phantom: No need.
-const wallet = new Wallet("phantom");
+const wallet = new Wallet("phantom", {});
 
 // Walletconnect: { rpc }.
 // Already built-in RPC ⬇️
@@ -109,6 +109,15 @@ const wallet = new Wallet("waxio", {
   userAccount: "xxx.wam", // A user’s WAX Blockchain Account name (optional)
   pubKeys: [], // An Array of public keys for a specific account (optional)
   tryAutoLogin: true, // Autologin bool value (optional)
+});
+
+// Sollet: { provider, network }.
+// provider = window.sollet  (Official Extension Wallet Provider)
+// provider = "https://www.sollet.io"  (Official Web Wallet Provider)
+const wallet = new Wallet("sollet", {
+  provider: window.sollet, // (default)
+  // provider: "https://www.sollet.io",
+  network: "mainnet-beta" || "devnet" || "testnet", // (required)(default "devnet")
 });
 
 // Use try catch
@@ -209,14 +218,17 @@ wallet.onChainChanged(chainId => {
 
 6⃣️Waxio👉 web3js❌ login✅ logout❌ onAccountsChanged❌ onChainChanged❌
 
-7⃣️Phantom web3js(@solana/web3.js)✅ login✅ logout✅ onAccountsChanged❌ onChainChanged❌
+7⃣️Phantom👉 web3js(@solana/web3.js)✅ login✅ logout✅ onAccountsChanged❌ onChainChanged❌
+
+8⃣️Sollet👉 web3js(@solana/web3.js)✅ login✅ logout✅ onAccountsChanged❌ onChainChanged❌
 
 ## Supported Wallets & Integrations
 
 1. [Waxio](https://wax.io)
 2. [Portis](https://portis.io)
 3. [Phantom](https://phantom.app)
-4. [Metamask](https://metamask.io)
-5. [Fortmatic](https://fortmatic.com)
-6. [Walletlink](https://walletlink.org)
-7. [Walletconnect](https://walletconnect.com)
+4. [Sollet](https://www.sollet.io)
+5. [Metamask](https://metamask.io)
+6. [Fortmatic](https://fortmatic.com)
+7. [Walletlink](https://walletlink.org)
+8. [Walletconnect](https://walletconnect.com)
