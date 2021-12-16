@@ -48,6 +48,7 @@ class Walletlink {
       this.account = account;
 
       // 授权过程完毕
+      return true;
     } catch (error: any) {
       throw error;
     }
@@ -55,7 +56,7 @@ class Walletlink {
 
   // 钱包执行账号退出
   public async logout() {
-    await this.wallet.close();
+    return await this.wallet.close();
   }
 
   // 钱包监听账号变化

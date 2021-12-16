@@ -34,6 +34,7 @@ class Metamask {
       this.web3 = new Web3(this.wallet);
 
       // 授权过程完毕
+      return true;
     } catch (error: any) {
       throw error;
     }

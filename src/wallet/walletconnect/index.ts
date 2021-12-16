@@ -35,6 +35,7 @@ class Walletconnect {
       this.web3 = new Web3(this.wallet);
 
       // 授权过程完毕
+      return true;
     } catch (error: any) {
       throw error;
     }
@@ -42,7 +43,7 @@ class Walletconnect {
 
   // 钱包执行账号退出
   public async logout() {
-    await this.wallet.disconnect();
+    return await this.wallet.disconnect();
   }
 
   // 钱包监听账号变化

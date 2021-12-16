@@ -35,12 +35,13 @@ class Waxio {
       this.account = account;
 
       // 授权过程完毕
+      return true;
     } catch (error: any) {
       throw error;
     }
   }
 
-  // 钱包监听程序退出
+  // 钱包执行账号退出
   public async logout() {}
 
   // 钱包监听账号变化

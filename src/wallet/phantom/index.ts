@@ -20,7 +20,7 @@ class Phantom {
   public async login() {
     try {
       // 授权
-      const res = await this.wallet.request({ method: "connect" });
+      const res = await this.wallet.connect();
 
       // 默认账号
       this.account = res.publicKey.toString();
@@ -29,6 +29,7 @@ class Phantom {
       this.web3 = Web3;
 
       // 授权过程完毕
+      return true;
     } catch (error: any) {
       throw error;
     }
@@ -36,7 +37,7 @@ class Phantom {
 
   // 钱包执行账号退出
   public async logout() {
-    await this.wallet.request({ method: "disconnect" });
+    return await this.wallet.disconnect();
   }
 
   // 钱包监听账号变化

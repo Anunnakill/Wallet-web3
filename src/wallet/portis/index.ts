@@ -31,6 +31,7 @@ class Portis {
       this.account = account;
 
       // 授权过程完毕
+      return true;
     } catch (error: any) {
       throw error;
     }
@@ -38,7 +39,7 @@ class Portis {
 
   // 钱包执行账号退出
   public async logout() {
-    await this.wallet.logout();
+    return await this.wallet.logout();
   }
 
   // 钱包监听账号变化
