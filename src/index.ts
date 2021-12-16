@@ -1,3 +1,4 @@
+import waxio from "./wallet/waxio";
 import portis from "./wallet/portis";
 import metamask from "./wallet/metamask";
 import fortmatic from "./wallet/fortmatic";
@@ -10,6 +11,7 @@ class Wallet {
 
   // 全部支持的钱包
   public wallets: any = {
+    waxio,
     portis,
     metamask,
     fortmatic,

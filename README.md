@@ -4,7 +4,7 @@
 
 The wallet provider is a plug-in that integrates various blockchain wallet APIs to connect to Dapp (send transactions, personal signatures, deploy contracts).
 
-Now integrated Metamask, Walletconnect, Walletlink, Fortmatic, Portis.
+Now integrated Metamask, Walletconnect, Walletlink(Coinbase Wallet), Fortmatic, Portis, Waxio(Wax Cloud Wallet).
 
 Other wallets are being supported one after another (Walletconnect protocol has been adopted by dozens of popular wallets).
 
@@ -44,7 +44,7 @@ import Wallet from "blockchain-wallet-provider";
 
 ```javascript
 // The first parameter: Wallet to use.
-// metamask or walletconnect or walletlink or fortmatic or portis (Note that the initial letter is lowercase).
+// metamask or walletconnect or walletlink or fortmatic or portis or waxio (Note that the initial letter is lowercase).
 
 // The second parameter: Required configuration of the wallet.
 
@@ -100,12 +100,21 @@ const wallet = new Wallet("portis", {
   },
 });
 
+// Waxio: { rpcEndpoint, userAccount, pubKeys, tryAutoLogin }.
+const wallet = new Wallet("waxio", {
+  rpcEndpoint: "https://wax.greymass.com", // The URL for the RPC Server you wish to connect to (required)
+  userAccount: "xxx.wam", // A user’s WAX Blockchain Account name (optional)
+  pubKeys: [], // An Array of public keys for a specific account (optional)
+  tryAutoLogin: true, // Autologin bool value (optional)
+});
+
 // Use try catch
 try {
   // The login method is an async function.
   await wallet.login();
 
   // If the authorized login is successful:👇
+  // Whether the specific attribute value exists, please check the notes below👇
 
   // web3 object (instantiated).
   console.log(wallet.web3);
@@ -143,8 +152,6 @@ try {
 login()
 ```
 
-Authorized login (Async function).
-
 ```javascript
 await wallet.login();
 ```
@@ -152,8 +159,6 @@ await wallet.login();
 ```bash
 logout()
 ```
-
-Log out (the browser metamask plug-in needs to be manually disconnected).
 
 ```javascript
 await wallet.logout();
@@ -189,20 +194,23 @@ wallet.onChainChanged(chainId => {
 
 ### ❗️❗️Official methods and events support
 
-1⃣️Walletconnect👉 login✅ logout✅ onAccountsChanged✅ onChainChanged✅
+1⃣️Walletconnect👉 web3js✅ login✅ logout✅ onAccountsChanged✅ onChainChanged✅
 
-2⃣️Metamask👉 login✅ logout❌ onAccountsChanged✅ onChainChanged✅
+2⃣️Metamask👉 web3js✅ login✅ logout❌ onAccountsChanged✅ onChainChanged✅
 
-3⃣️Portis👉 login✅ logout✅ onAccountsChanged✅ onChainChanged❌
+3⃣️Portis👉 web3js✅ login✅ logout✅ onAccountsChanged✅ onChainChanged❌
 
-4⃣️Walletlink👉 login✅ logout✅ onAccountsChanged❌ onChainChanged❌
+4⃣️Walletlink👉 web3js✅ login✅ logout✅ onAccountsChanged❌ onChainChanged❌
 
-5⃣️Fortmatic👉 login✅ logout✅ onAccountsChanged❌ onChainChanged❌
+5⃣️Fortmatic👉 web3js✅ login✅ logout✅ onAccountsChanged❌ onChainChanged❌
+
+6⃣️Waxio👉 web3js❌ login✅ logout❌ onAccountsChanged❌ onChainChanged❌
 
 ## Supported Wallets & Integrations
 
-1. [Portis](https://portis.io)
-2. [Metamask](https://metamask.io)
-3. [Fortmatic](https://fortmatic.com)
-4. [Walletlink](https://walletlink.org)
-5. [Walletconnect](https://walletconnect.com)
+1. [Waxio](https://wax.io)
+2. [Portis](https://portis.io)
+3. [Metamask](https://metamask.io)
+4. [Fortmatic](https://fortmatic.com)
+5. [Walletlink](https://walletlink.org)
+6. [Walletconnect](https://walletconnect.com)

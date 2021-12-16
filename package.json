@@ -3,7 +3,7 @@
     "lib/**/*"
   ],
   "license": "ISC",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "JiCheng",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,7 +16,10 @@
   },
   "keywords": [
     "web3",
+    "wax",
     "dapp",
+    "waxio",
+    "waxjs",
     "wallet",
     "portis",
     "provider",
@@ -36,6 +39,7 @@
   "dependencies": {
     "@portis/web3": "^4.0.6",
     "@walletconnect/web3-provider": "^1.6.6",
+    "@waxio/waxjs": "^1.0.4",
     "fortmatic": "^2.2.1",
     "walletlink": "^2.1.11",
     "web3": "^1.6.0"
