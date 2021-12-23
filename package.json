@@ -3,11 +3,11 @@
     "lib/**/*"
   ],
   "license": "ISC",
-  "version": "1.1.5",
+  "version": "1.0.0",
   "author": "JiCheng",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "name": "blockchain-wallet-provider",
+  "name": "wallet-web3",
   "description": "A dapp wallet provider",
   "homepage": "https://github.com/Anunnakill/Wallet#readme",
   "scripts": {
